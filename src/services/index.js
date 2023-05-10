@@ -1,10 +1,9 @@
-import { songComponents} from './src export const getData = async (callback) { }
-     const 
 
 
+     export const getData = (callback) => {
+          fetch('https://leonardoapi.onrender.com/music')
+            .then(res => res.json())
+            .then(res => callback(res))
+        }
 
 
-
-
-     const container = document.querySelector('#container')
-container.append(songComponents)

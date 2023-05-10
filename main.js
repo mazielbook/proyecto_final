@@ -1,11 +1,19 @@
 import components from './src/components' 
+import { getData } from './src/services'
 
-// function songComponent = () => {
-//       const song = document.createElement('div')
-//       song.innerHTML = 
-//       return song }
+const container = document.getElementById('container');
+
+getData(res => {
 
 
+  res.map(
+    item => 
+      container.appendChild(
+        songComponent(item)
+      )
+  
+  )
 
-// { }
+}) 
+
 
