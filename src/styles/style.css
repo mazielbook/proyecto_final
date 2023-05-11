@@ -1,16 +1,24 @@
 #container0 { position: absolute;
-             width: 1331.05px;
-             height: 157.1px;
-             left: -42.5px;
-             top: -13.5px;
+             width: 100% ;
+             height: 5em;
+             font-family: 'Montserrat', sans-serif; ;
+           
          
             background: #9AC6C5;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
           
-            #logo {position: relative;
-                   padding: 0%;
-                justify-content: center;
-            }
+            #logo {position: absolute;
+                   display: flex;
+                   align-items: flex-start;
+                   flex-flow: row wrap;
+                }
+
+
+            .p { position: absolute;
+                display: flex;
+                align-items: flex-start;
+                flex-flow: row wrap;
+             }
 
 
 #barlateral { flex-direction: column;
@@ -21,8 +29,9 @@
 #header { position: absolute;
           width: 287px;
           height: 638px;
-          left: 14px;
-          top: 181px;
+          left: -7px;
+          top: 175px;
+        
                 /* height: 100vh;
                 display: flex;
                 flex-direction: column;

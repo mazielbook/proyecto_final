@@ -1,19 +1,29 @@
-import components from './src/components'
-import { getData } from './src/services'
+import './src/styles.css'
+import {songComponent, currentSongComponent} from './src/components'
+import {getData} from './src/services'
+import { removeAllChild, useLocalstorage } from './src/utils';
 
-const container = document.getElementById('container');
+const tracklist = document.querySelector('#lista');
+const currentSong = document.getElementById('current_song');
+const storage = useLocalstorage('current_song');
 
-getData(res => {
+getData((song) => {
+  removeAllChild(tracklist);
+  song.map((div) => {
+    const songElement = songComponent(div);
+    songElement.addEventListener('click', () => {
+    });
+    tracklist.appendChild(songElement);
+  });
+});
 
+const setCurrentSong = (child) => {
+  removeAllChild(currentSong);
+  currentSong.appendChild(child);
+}
 
-  res.map(
-    item => 
-      container.appendChild(
-        songComponent(item)
-      )
-  
-  )
-
-}) 
-
+if (storage.getItem('#current_song')) { // Asegurarse de proporcionar una clave para getItem
+  const data = storage.getItem('#current_song'); // Utilizar la misma clave que en getItem
+  setCurrentSong(currentSongComponent(data));
+}
 
