@@ -1,20 +1,30 @@
-export const songComponent = (data) => {
-
-    const song = document.createElement('div')
-    song.innerHTML= `
-      <div class="flex p-4">
-        <div class="h-20">
-          <img
-            src="${data.path.front}"
+  export const itemSongComponent = (song, event = ()=>{}) => {
+    const div = document.createElement('div');
+    div.addEventListener('click', () => {
+      event(song)
+    })
+    div.classList.add('song')
+    div.innerHTML = `
+        <img src="${song.path.front}">
+        <div class="description">
+          <h4>${song.title}</h4>
+          <p>${song.author}</p>
+        </div>
+        <p class="duration">${song.duration}</p>
+    `;
+    return div
+  }
   
-            class="object-cover h-full"
-          >
+  export const currentSongComponent = (song) => {
+    const div = document.createElement('div');
+    div.classList.add('song')
+    div.innerHTML = `
+        <img src="${song.path.front}">
+        <div class="description">
+          <h4>${song.title}</h4>
+          <p>${song.author}</p>
         </div>
-        <div class="flex flex-col justify-center ml-8">
-          <h5 class="font-bold">${data.title}</h5>
-          <p class="opacity-50">${data.author}</p>
-        </div>
-      </div>
-    `
-    return song
+        <audio src="${song.path.audio}" controls autoplay>
+    `;
+    return div
   }

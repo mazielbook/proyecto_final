@@ -1,4 +1,4 @@
-import components from './src/components' 
+import components from './src/components'
 import { getData } from './src/services'
 
 const container = document.getElementById('container');
