@@ -28,3 +28,15 @@
     `;
     return div
   }
+
+   export  const songComponent = (song) => {
+    const cancion = document.createElement("div")
+    cancion.innerHTML = `
+    <img src="${song.path.front}">
+    <div class="description">
+      <h4>${song.title}</h4>
+      <p>${song.author}</p>
+    </div>
+`
+      return cancion 
+    }
